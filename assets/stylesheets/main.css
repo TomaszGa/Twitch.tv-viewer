@@ -18,6 +18,10 @@ h1{
 .offline{
 background-color: #A8AEC1;	
 }
+.inactive{
+text-align: left;
+background-color: #AFAFAF;
+}
 .avatar{
 	max-height: 100px;
 	max-width: 100px;
