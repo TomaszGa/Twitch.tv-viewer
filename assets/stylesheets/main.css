@@ -1,0 +1,28 @@
+body{
+	text-align: center;
+	font-family: "Montserrat";
+	background-color: #A09EBB;
+}
+h1{
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+.stream-box{
+	border: 1px solid grey;
+	margin: 0;
+	background-color: #A6FFA1;
+}
+@media (min-width: 768px) {  
+    .stream-box {margin: 0 15%} /*1rem = 16px*/
+}
+.offline{
+background-color: #A8AEC1;	
+}
+.avatar{
+	max-height: 100px;
+	max-width: 100px;
+}
+.v-center {
+   display: flex;
+   align-items: center;
+}
