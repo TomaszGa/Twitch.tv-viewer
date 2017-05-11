@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 	//list of streamers to be displayed
-  var streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404"];
+  var streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404", "BeyondTheSummit", "Kyente", "travelyan", "SpeedGaming", "DreamLeague"];
   var streamCheck = "";
   var dataCheck = "";
   $.ajaxSetup({
@@ -15,10 +15,10 @@ $(document).ready(function () {
     $.getJSON(streamCheck, function (json) {
 			//check if streamer is offline
       if (json.stream === null) {
-				htmlString += "<div class='stream-box row v-center offline'><div class='col'><a href='https://www.twitch.tv/" + i + "'><p>" + i + "</p></a></div><div class='col'><p>is offline</p></div>";
+				htmlString += "<div class='card offline'><div class='card-block'><a href='http://www.twitch.com/" + i +"'><p>" + i + " </a>is offline</p></div>";
 			}
 				else {
-					htmlString += "<div class='stream-box row v-center'><div class='col'><a href='https://www.twitch.tv/" + i + "'><p>" + i + "</p></a></div><div class='col'><p>" + json.stream.channel.status + "</p></div>";
+					htmlString += "<div class='card online'><div class='card-block'><a href='http://www.twitch.com/"+ i +"'><p>"+ i +" </a>is streaming:</p><p>" + json.stream.channel.status + "</p></div>";
         }
 			dataCheck = "https://wind-bow.glitch.me/twitch-api/channels/" + i;
 			//second get for logo url
@@ -26,10 +26,10 @@ $(document).ready(function () {
 				console.log(json2.hasOwnProperty("error"));
 				if (json2.hasOwnProperty("error")) {
 					//if streamer deactivated, wipe htmlString and set placeholder
-					htmlString = "<div class='stream-box row v-center inactive'><div class='col'><p>User " + i + " not active</p></div><div class='col-sm-4 avatar'><img src='assets/img/x-mark-4-xxl.png' class='img-fluid'></div></div>";
+					htmlString = "<div class='card inactive'><div class='card-block'><p>" + i + " deactivated their account</p></div></div>";
 				}
 					else {
-						htmlString += "<div class='col-sm-4 avatar'><img src='" + json2.logo + "' class='img-fluid'></div></div>";
+					htmlString += "<img src='" + json2.logo + "' class='img-fluid card-img-bottom'></div>";
 					}
 				$("#outputContainer").append(htmlString);
 					 
