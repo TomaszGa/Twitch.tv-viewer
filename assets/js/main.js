@@ -1,15 +1,15 @@
 
 $(document).ready(function () {
 	//list of streamers to be displayed
-  var streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404", "BeyondTheSummit", "Kyente", "travelyan", "SpeedGaming", "DreamLeague"];
-  var streamCheck = "";
-  var dataCheck = "";
+  const streamerList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404", "BeyondTheSummit", "Kyente", "travelyan", "SpeedGaming", "DreamLeague"];
+  let streamCheck = "";
+  let dataCheck = "";
   $.ajaxSetup({
     cache: false
 	});
 	//loop through all names on streamer list
   streamerList.forEach(function (i) {
-    var htmlString = "";
+    let htmlString = "";
     streamCheck = "https://wind-bow.glitch.me/twitch-api/streams/" + i;
 		//first get to check stream status
     $.getJSON(streamCheck, function (json) {
